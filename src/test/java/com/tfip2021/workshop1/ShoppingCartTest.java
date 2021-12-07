@@ -20,7 +20,7 @@ public class ShoppingCartTest {
     private String cart = "db";
     private String userName = "testUser";
     private ShoppingCart sc = new ShoppingCart(cart);
-    private String[] input = {"apple", "mango", "pear", "banana"};
+    private String input = "apple,mango,pear,banana";
     // Create a stream to hold the output
     private ByteArrayOutputStream baos = new ByteArrayOutputStream();
     private PrintStream ps = new PrintStream(baos);
@@ -44,7 +44,7 @@ public class ShoppingCartTest {
         sc.login(userName);
         sc.clear();
         sc.add(input);
-        assertArrayEquals(input, sc.getTempCart().toArray(output));
+        assertArrayEquals(input.split(","), sc.getTempCart().toArray(output));
 
         // Clean up
         System.out.flush();
@@ -58,7 +58,7 @@ public class ShoppingCartTest {
         System.setOut(ps);
 
         // Test deleting before logging in
-        sc.delete(1);
+        sc.delete("1");
         assertEquals(
             "There is no user logged in" + System.lineSeparator(),
             baos.toString()
@@ -68,7 +68,7 @@ public class ShoppingCartTest {
         sc.login(userName);
         sc.clear();
         baos.reset();
-        sc.delete(1);
+        sc.delete("1");
         assertEquals(
             "Incorrect item index" + System.lineSeparator(),
             baos.toString()
@@ -76,7 +76,7 @@ public class ShoppingCartTest {
 
         // Test deleting with negative index
         baos.reset();
-        sc.delete(-1);
+        sc.delete("-1");
         assertEquals(
             "Incorrect item index" + System.lineSeparator(),
             baos.toString()
@@ -84,7 +84,7 @@ public class ShoppingCartTest {
 
         // Test deleting
         sc.add(input);
-        sc.delete(3);
+        sc.delete("3");
         assertArrayEquals(inputWithDeletion, sc.getTempCart().toArray(output));
 
         // Clean up

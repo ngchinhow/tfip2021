@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
@@ -48,11 +50,12 @@ public class ShoppingCart {
         }
     }
 
-    public void add(String[] items) {
+    public void add(String itemStr) {
         if (this.getUser() == null) {
             System.out.println("Login before adding to cart");
             return;
         }
+        String[] items = itemStr.split(",");
         boolean result;
         for (String item : items) {
             item = item.trim();
@@ -65,7 +68,8 @@ public class ShoppingCart {
         }
     }
 
-    public void delete(int index) {
+    public void delete(String indexStr) {
+        int index = Integer.parseInt(indexStr);
         if (this.getUser() == null) {
             System.out.println("There is no user logged in");
             return;
@@ -157,7 +161,6 @@ public class ShoppingCart {
         System.out.println("Your cart has been saved");
     }
 
-
     public void users() {
         File dir = new File(this.getAbsolutePath());
         File[] userCarts = dir.listFiles();
@@ -172,7 +175,7 @@ public class ShoppingCart {
         }
     }
 
-    public static void main(String[] args) throws IOException, FileNotFoundException {
+    public static void main(String[] args) throws IOException, FileNotFoundException, NoSuchMethodException, SecurityException {
         String cart;
         if (args.length == 0) {
             cart = "db";
@@ -190,31 +193,22 @@ public class ShoppingCart {
             System.out.print("> ");
             operation = scan.next().toLowerCase();
             params = scan.nextLine().trim();
-            switch (operation) {
-                case "add":
-                    shoppingCart.add(params.split(","));
-                    break;
-                case "list":
-                    shoppingCart.list();
-                    break;
-                case "delete":
-                    shoppingCart.delete(Integer.parseInt(params));
-                    break;
-                case "login":
-                    shoppingCart.login(params);
-                    break;
-                case "logout":
-                    shoppingCart.logout();
-                    break;
-                case "clear":
-                    shoppingCart.clear();
-                    break;
-                case "save":
-                    shoppingCart.save();
-                    break;
-                case "users":
-                    shoppingCart.users();
-                    break;
+            Method method;
+            try {
+                if (params.equals("")) {
+                    method = shoppingCart.getClass().getMethod(operation);
+                    method.invoke(shoppingCart);
+                } else {
+                    method = shoppingCart.getClass().getMethod(operation, params.getClass());
+                    method.invoke(shoppingCart, params);
+                }
+            } catch (NoSuchMethodException e) {
+                System.out.println("Invalid operation");
+            } catch (SecurityException |
+                IllegalAccessException |
+                IllegalArgumentException |
+                InvocationTargetException e) {
+                e.printStackTrace();
             }
         }
 

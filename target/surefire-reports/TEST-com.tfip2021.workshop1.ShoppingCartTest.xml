@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.tfip2021.workshop1.ShoppingCartTest" time="0.06" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.tfip2021.workshop1.ShoppingCartTest" time="0.069" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Progra~1\Java\jdk-17.0.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\CH\AppData\Local\Temp\surefire12416896869114807537\surefirebooter13947429954266134804.jar C:\Users\CH\AppData\Local\Temp\surefire12416896869114807537 2021-12-07T12-05-51_059-jvmRun1 surefire3137022505719653400tmp surefire_013880576485515231336tmp"/>
+    <property name="sun.java.command" value="C:\Users\CH\AppData\Local\Temp\surefire3390878443110000299\surefirebooter2333240604410520975.jar C:\Users\CH\AppData\Local\Temp\surefire3390878443110000299 2021-12-07T12-56-33_271-jvmRun1 surefire14353532894034965291tmp surefire_011502519264448778103tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\CH\OneDrive\TFIP Software Engineering\NUS\Module 1\workshop1\target\test-classes;C:\Users\CH\OneDrive\TFIP Software Engineering\NUS\Module 1\workshop1\target\classes;C:\Users\CH\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\CH\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\CH\AppData\Local\Temp\surefire12416896869114807537\surefirebooter13947429954266134804.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\CH\AppData\Local\Temp\surefire3390878443110000299\surefirebooter2333240604410520975.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.1+12-LTS-39"/>
@@ -56,12 +56,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testAdd" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0.008"/>
+  <testcase name="testAdd" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0.005"/>
   <testcase name="testClear" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0"/>
-  <testcase name="testLogin" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0.004"/>
+  <testcase name="testLogin" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0.005"/>
   <testcase name="testUsers" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0"/>
-  <testcase name="testList" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0"/>
+  <testcase name="testList" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0.004"/>
   <testcase name="testSave" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0.004"/>
-  <testcase name="testDelete" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0"/>
-  <testcase name="testLogout" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0.004"/>
+  <testcase name="testDelete" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0.004"/>
+  <testcase name="testLogout" classname="com.tfip2021.workshop1.ShoppingCartTest" time="0"/>
 </testsuite>
